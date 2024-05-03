@@ -20,7 +20,7 @@ def get_contributors(repo_owner, repo_name):
 
         for contributor in response.json():
             contributions = contributor["weeks"]
-            mod_lines = sum([week["d"] + week["a"] for week in contributions])
+            mod_lines = sum(week["d"] + week["a"] for week in contributions)
             contributors[contributor["author"]["login"]] = mod_lines
 
         if "next" in response.links:
